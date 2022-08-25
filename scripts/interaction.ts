@@ -1,16 +1,16 @@
 import { ethers } from "hardhat";
 
-// CONTRACT DEPLOYED TO GOERLI TESTNET: 0x58659688bdF1c45fE0e78a11ff77b0d318C1b5c5
+// CONTRACT DEPLOYED TO GOERLI TESTNET: 0x345e9E5fCA43dE0892d7D85260F82Aa6B6951143
 
 async function main() {
   const Voting = await ethers.getContractFactory("Voting");
   const voting = Voting.attach(
-    ""
+    "0x345e9E5fCA43dE0892d7D85260F82Aa6B6951143"
   );
 
   
-  const todoItem = await voting.getTodoItem(0);
-  console.log("Todo Item: ", todoItem);
+  const candidates = await voting.viewAllCandidates();
+  console.log("Candidate List: ", candidates);
 }
 
 main().catch((error) => {
